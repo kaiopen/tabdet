@@ -1,0 +1,9 @@
+---
+data:
+  type: TAB
+  root: data/TAB
+  range_xy: default
+  num_category: default
+  categories: default
+
+...

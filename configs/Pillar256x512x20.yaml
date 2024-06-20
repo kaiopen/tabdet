@@ -1,0 +1,8 @@
+---
+bev:
+  size: [256, 512]
+  error: [0, 0]
+  closed: [False, False]
+
+  num_neighbor: 20  # > 0
+...

@@ -1,0 +1,97 @@
+---
+configs:
+  - TAB.yaml
+  - Pillar256x512x20.yaml
+
+preprocess:
+  type: TAB
+  root: ~data.root
+  split: ~run.split
+  size: ~bev.size
+  scale: ~model.scale
+  resample: False
+  dst: tmp/TAB/64x128
+
+dataset:
+  type: TAB
+  root: ~data.root
+  split: ~run.split
+  is_training: ~run.is_training
+  size: ~bev.size
+  num_neighbor: ~bev.num_neighbor
+  dir: ~preprocess.dst
+
+model:
+  scale: 4
+
+  bev:
+    type: Pillar
+    in_channels: 13
+    channels: [64, 64]
+    size: ~bev.size
+    activation: relu
+    activation_kw: {inplace: True}
+
+  backbone:
+    type: HRNet
+    in_channels: 64
+    padding_mode: zeros
+    activation: relu
+    activation_kw: {inplace: True}
+
+  neck:
+    type: HRNet
+
+  head:
+    type: Head
+    in_channels: 270
+    num_category: ~data.num_category
+    padding_mode: zeros
+    activation: relu
+    activation_kw: {inplace: True}
+
+optimizer:
+  type: AdamW
+  lr: 0.001
+
+scheduler:
+  type: CosineAnnealing
+  T_max: ~run.end_epoch
+
+criterion:
+  type: Criterion
+
+decoder:
+  type: Decoder
+  range_xy: ~data.range_xy
+  categories: ~data.categories
+  size: ~bev.size
+  scale: ~model.scale
+  threshold: 0.2
+  nms:
+    type: TAB
+    size: ~bev.size
+  cluster:
+    type: DBSCAN
+    radius: 1.5
+    num_sample: 1
+
+evaluator:
+  type: TAB
+  root: ~data.root
+  split: ~run.split
+
+format:
+  type: TAB
+
+run:
+  split: train
+  is_training: True
+  batch_size: 32
+  num_worker: 10
+  end_epoch: 200
+  resume: False
+  checkpoint: null
+  amp: False
+
+...
