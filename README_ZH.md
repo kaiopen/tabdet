@@ -66,7 +66,7 @@ python tools/test.py --config=TAB_Pillar256x512x20_UNet.yaml --split=test --batc
         <th style="text-align: center;">F_0.8</th>
     </tr>
     <tr>
-        <td style="text-align: center;">UNet</td>
+        <td style="text-align: center;"><a href="https://github.com/kaiopen/tabdet/releases/download/UNet/140.pth">UNet</a></td>
         <td style="text-align: center;">0.55</td>
         <td style="text-align: center;">0.50</td>
         <td style="text-align: center;">0.41</td>
@@ -81,7 +81,7 @@ python tools/test.py --config=TAB_Pillar256x512x20_UNet.yaml --split=test --batc
         <td style="text-align: center;">0.32</td>
     </tr>
     <tr>
-        <td style="text-align: center;">HRNet-w18</td>
+        <td style="text-align: center;"><a href="https://github.com/kaiopen/tabdet/releases/download/HRNet/170.pth">HRNet-w18</a></td>
         <td style="text-align: center;">0.69</td>
         <td style="text-align: center;">0.66</td>
         <td style="text-align: center;">0.63</td>
@@ -111,5 +111,7 @@ python tools/test.py --config=TAB_Pillar256x512x20_UNet.yaml --split=test --batc
         <td style="text-align: center;">0.46</td>
     </tr>
 </table>
+
+注：由于上传上限的限制，训练好的 DeepLabV3+ 的模型参数未能成功上传。可以在 issue 中留下邮箱地址以便模型参数能够尽快地找到您。
 
 可以下载以上训练好的模型，并放置在相应的路径中，例如 `./checkpoints/TAB_Pillar256x512x20_UNet.yaml/`，即可进行测试。

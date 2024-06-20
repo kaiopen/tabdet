@@ -66,7 +66,7 @@ python tools/test.py --config=TAB_Pillar256x512x20_UNet.yaml --split=test --batc
         <th style="text-align: center;">F_0.8</th>
     </tr>
     <tr>
-        <td style="text-align: center;">UNet</td>
+        <td style="text-align: center;"><a href="https://github.com/kaiopen/tabdet/releases/download/UNet/140.pth">UNet</a></td>
         <td style="text-align: center;">0.55</td>
         <td style="text-align: center;">0.50</td>
         <td style="text-align: center;">0.41</td>
@@ -81,7 +81,7 @@ python tools/test.py --config=TAB_Pillar256x512x20_UNet.yaml --split=test --batc
         <td style="text-align: center;">0.32</td>
     </tr>
     <tr>
-        <td style="text-align: center;">HRNet-w18</td>
+        <td style="text-align: center;"><a href="https://github.com/kaiopen/tabdet/releases/download/HRNet/170.pth">HRNet-w18</a></td>
         <td style="text-align: center;">0.69</td>
         <td style="text-align: center;">0.66</td>
         <td style="text-align: center;">0.63</td>
@@ -111,5 +111,7 @@ python tools/test.py --config=TAB_Pillar256x512x20_UNet.yaml --split=test --batc
         <td style="text-align: center;">0.46</td>
     </tr>
 </table>
+
+NOTE: The checkpoint of the DeepLabV3+ has not been uploaded because it is larger than 2 GB. You can rise up an issue and leave your email address. The checkpoint will be sent to you as soon as possible.
 
 You can download well-trained checkpoints and move them into checkpoint directories such as `./checkpoints/TAB_Pillar256x512x20_UNet.yaml/`.
